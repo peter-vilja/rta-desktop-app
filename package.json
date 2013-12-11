@@ -9,6 +9,7 @@
     "grunt-shell": "~0.6.1",
     "time-grunt": "~0.2.3",
     "load-grunt-tasks": "~0.2.0",
-    "grunt-contrib-handlebars": "~0.6.0"
+    "grunt-contrib-handlebars": "~0.6.0",
+    "grunt-contrib-compass": "~0.7.0"
   }
 }

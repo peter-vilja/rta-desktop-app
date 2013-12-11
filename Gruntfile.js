@@ -22,13 +22,22 @@ module.exports = function (grunt) {
           namespace: 'JST'
         },
         files: {
-          'app/scripts/templates.js': 'app/templates/*.hbs'
+          '<%= realtime.app %>/scripts/templates.js': '<%= realtime.app %>/templates/*.hbs'
+        }
+      }
+    },
+    compass: {
+      dev: {
+        options: {
+          sassDir: '<%= realtime.app %>/styles',
+          cssDir: '<%= realtime.app %>/styles'
         }
       }
     }
   });
 
   grunt.registerTask('default', [
+    'compass',
     'handlebars',
     'shell'
   ]);
