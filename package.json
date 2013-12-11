@@ -1,0 +1,14 @@
+{
+  "name": "rta-desktop-app",
+  "main": "app/index.html",
+  "window": {
+    "toolbar": true
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-shell": "~0.6.1",
+    "time-grunt": "~0.2.3",
+    "load-grunt-tasks": "~0.2.0",
+    "grunt-contrib-handlebars": "~0.6.0"
+  }
+}
