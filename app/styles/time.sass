@@ -1,26 +1,91 @@
-.timer
+.button
+  display: inline-block
+  padding: 10px 30px
+  color: white
+  border-radius: 3px
+  font-size: 19px
+  cursor: pointer
+  user-select: none
+
+.green
+  background-color: $green
+  background: radial-gradient(circle, $green 70%, #5DB556 100%)
+
+  &:hover
+    background: radial-gradient(circle, $green 80%, #5DB556 100%)
+
+  &:active
+    background: radial-gradient(circle, $green 10%, #5DB556 100%)
+
+.neutral
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3) inset
+  color: rgba(0,0,0,0.8)
+  border: 1px solid rgba(0, 0, 0, 0.3)
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.01) 70%, rgba(0, 0, 0, 0.1) 100%)
+  &:hover
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.01) 80%, rgba(0, 0, 0, 0.15) 100%)
+
+  &:active
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.01) 10%, rgba(0, 0, 0, 0.12) 100%)
+
+.center
+  margin: 0 auto
+
+.time-container
   width: 200px
   margin: 120px auto 0
+  transition: all 0.3s ease
+
+  &.up
+    margin-top: 40px
+    width: 400px
+
+    > *
+      margin: 0 auto
 
   .time
     font-size: 46px
     display: block
     color: rgba(0,0,0,0.8)
+    width: 180px
 
   .start
-    display: inline-block
-    margin-top: 10px
     padding: 14px 34px
-    background-color: rgb(103, 201, 95)
-    background: radial-gradient(circle, rgb(103, 201, 95) 70%, #5DB556 100%)
-    color: white
-    border-radius: 3px
-    font-size: 19px
-    cursor: pointer
-    user-select: none
+    margin-top: 10px
+    background-color: $green
+    background: radial-gradient(circle, $green 70%, #5DB556 100%)
 
     &:hover
-      background: radial-gradient(circle, rgb(103, 201, 95) 80%, #5DB556 100%)
+      background: radial-gradient(circle, $green 80%, #5DB556 100%)
 
     &:active
-      background: radial-gradient(circle, rgb(103, 201, 95) 10%, #5DB556 100%)
+      background: radial-gradient(circle, $green 10%, #5DB556 100%)
+
+  .stop
+    padding: 14px 34px
+    margin-top: 10px
+    background-color: $red
+    background: radial-gradient(circle, $red 70%, #9D4B43 100%)
+
+    &:hover
+      background: radial-gradient(circle, $red 80%, #9D4B43 100%)
+
+    &:active
+      background: radial-gradient(circle, $red 10%, #9D4B43 100%)
+
+  .time-form
+    width: 305px
+    margin: 0 auto
+
+    label
+      display: block
+      width: 80px
+
+    .submit
+      margin-top: 10px
+      display: block
+      text-align: center
+
+    .users-button
+      display: block
+      text-align: center

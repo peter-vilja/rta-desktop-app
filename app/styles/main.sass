@@ -1,4 +1,8 @@
+$red: rgb(174, 83, 74)
+$green: rgb(103, 201, 95)
+
 @import 'time.sass'
+@import 'user.sass'
 
 %reset
   margin: 0
@@ -9,9 +13,10 @@ body
   min-width: 300px
   background-color: rgba(251, 255, 246, 0.9)
   font-family: 'OpenSansLight'
+  color: rgba(0,0,0,0.8)
 
 .container
-  margin: 15px auto 0
+  margin: 0 auto
 
 .navigation
   padding: 0
@@ -43,13 +48,11 @@ body
       border: 1px solid rgba(0, 0, 0, 0.3)
       border-right: none
       border-bottom-left-radius: 5px
-      border-top-left-radius: 5px
 
     &:last-child
       border: 1px solid rgba(0, 0, 0, 0.3)
       border-left: none
       border-bottom-right-radius: 5px
-      border-top-right-radius: 5px
 
     .text
       width: 100px
@@ -57,8 +60,16 @@ body
       text-align: center
       font-size: 15px
 
+.content-container
+  width: 100%
+
 .content
-  clear: both
+  width: 100%
+  transition: all 0.6s ease
+  float: left
+
+  &.left
+    width: 50%
 
 
 @media only screen and (min-width: 480px)

@@ -18,11 +18,29 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<h1>Invoices by Handlebars</h1>";
   });
 
+this["JST"]["app/templates/time-form.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"time-form\">\n  <label for=\"comment\">Comment:</label>\n  <textarea name=\"comment\" rows=\"10\" cols=\"40\"></textarea>\n  <span id=\"users-button\" class=\"button neutral users-button\" onclick=\"selectUsers()\">ADD USERS</span>\n  <span class=\"button green submit\">SUBMIT</span>\n</div>";
+  });
+
 this["JST"]["app/templates/time.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"timer\">\n	<span id=\"elapsed\" class=\"time\">00:00:00</span>\n  <span id=\"start\" class=\"start\" onclick=\"startTimer()\">START TIMER</span>\n</div>";
+  return "<div id=\"time-container\" class=\"time-container\">\n	<span id=\"elapsed\" class=\"time\">00:00:00</span>\n  <span id=\"timer-button\" class=\"button start\" onclick=\"startTimer()\">START TIMER</span>\n</div>";
+  });
+
+this["JST"]["app/templates/users.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"users\">\n	<span class=\"user button neutral\">Peter Vilja</span>\n	<span class=\"user button neutral\">Patrik Vilja</span>\n	<span class=\"user button neutral\">Hanna-Mari Kinnunen</span>\n</div>";
   });
