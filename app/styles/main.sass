@@ -1,5 +1,110 @@
+%reset
+  margin: 0
+  padding: 0
+
+body
+  margin: 0 auto
+  min-width: 300px
+  background-color: rgba(251, 255, 246, 0.9)
+  font-family: 'OpenSansLight'
+
 .navigation
-  list-style: none
+  margin: 15px auto 0
+  padding: 0
+
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+    height: 80px
+  
+  li:first-child
+    border: 1px solid rgba(0, 0, 0, 0.3)
+    border-right: none
+    border-bottom-left-radius: 5px
+    border-top-left-radius: 5px
+
+  li:last-child
+    border: 1px solid rgba(0, 0, 0, 0.3)
+    border-left: none
+    border-bottom-right-radius: 5px
+    border-top-right-radius: 5px
 
   li
-    display: inline-block
+    float: left
+    height: 80px
+    width: 33%
+    min-width: 100px
+    border: 1px solid rgba(0, 0, 0, 0.3)
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3) inset
+
+    .text
+      width: 100px
+      margin: 10px auto 0
+      text-align: center
+      font-size: 15px
+
+.container
+  clear: both
+
+
+@media only screen and (min-width: 480px)
+
+@media only screen and (min-width: 768px)
+  .navigation
+    min-width: 85%
+    width: 768px
+
+@media only screen and (min-width: 1140px)
+  body
+    min-width: 85%
+    width: 1140px
+
+
+
+
+@font-face
+  font-family: 'OpenSansLight'
+  src: url('fonts/OpenSans-Light.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'icons'
+  src: url('fonts/icons.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+[class^="icon-"], [class*=" icon-"]
+  font-family: 'icons'
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  line-height: 1
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+.icon-clock:before
+  content: "\e600"
+
+.icon-users:before
+  content: "\e601"
+
+.icon-stopwatch:before
+  content: "\e602"
+
+.icon-envelope:before
+  content: "\e603"
+
+.icon
+  font-size: 38px
+  color: rgba(0, 0, 0, 0.7)
+
+//174, 83, 74 punanen
+//25, 134, 251 sininen
+//252, 254, 246 oli background
+//248, 248, 248 harmaa
