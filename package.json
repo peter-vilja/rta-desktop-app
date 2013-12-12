@@ -2,7 +2,10 @@
   "name": "rta-desktop-app",
   "main": "app/index.html",
   "window": {
-    "toolbar": false
+    "title": "Real Time Accounting",
+    "toolbar": true,
+    "min_width": 400,
+    "min_height": 200
   },
   "devDependencies": {
     "grunt": "~0.4.2",
