@@ -29,7 +29,7 @@ module.exports = function (grunt) {
     sass: {
       dist: {
         files: {
-          '<%= realtime.app %>/styles/main.css': '<%= realtime.app %>/styles/main.sass'
+          '<%= realtime.app %>/styles/main.css': '<%= realtime.app %>/styles/**.sass'
         }
       }
     },
