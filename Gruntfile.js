@@ -26,18 +26,31 @@ module.exports = function (grunt) {
         }
       }
     },
-    compass: {
-      dev: {
-        options: {
-          sassDir: '<%= realtime.app %>/styles',
-          cssDir: '<%= realtime.app %>/styles'
+    sass: {
+      dist: {
+        files: {
+          '<%= realtime.app %>/styles/main.css': '<%= realtime.app %>/styles/main.sass'
         }
       }
-    }
+    },
+    autoprefixer: {
+      options: {
+        browsers: ['last 1 version']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= realtime.app %>/styles',
+          src: '{,*/}*.css',
+          dest: '<%= realtime.app %>/styles'
+        }]
+      }
+    },
   });
 
   grunt.registerTask('default', [
-    'compass',
+    'sass',
+    'autoprefixer',
     'handlebars',
     'shell'
   ]);

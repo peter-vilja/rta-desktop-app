@@ -1,8 +1,7 @@
-/* line 1, main.sass */
 .navigation {
   list-style: none;
 }
-/* line 4, main.sass */
+
 .navigation li {
   display: inline-block;
 }
