@@ -5,7 +5,7 @@
     "title": "Real Time Accounting",
     "toolbar": true,
     "min_width": 400,
-    "min_height": 200
+    "min_height": 500
   },
   "devDependencies": {
     "grunt": "~0.4.2",

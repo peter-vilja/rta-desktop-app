@@ -131,9 +131,40 @@
 }
 
 .user {
-  width: 50%;
-  min-width: 200px;
   display: block;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.user:hover:before {
+  background-color: green;
+}
+
+.user:before {
+  width: 20px;
+  height: 50px;
+  float: left;
+  content: "";
+  display: inline-block;
+}
+
+.user:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-style: none;
+}
+
+.user:last-child {
+  border-bottom-left-radius: 5px;
+  border-top-style: none;
+}
+
+.user span {
+  display: inline-block;
+  padding: 13px 15px;
+  float: left;
 }
 
 .users {

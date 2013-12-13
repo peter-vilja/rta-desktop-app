@@ -1,7 +1,33 @@
 .user
-  width: 50%
-  min-width: 200px
   display: block
+  border: 1px solid rgba(0,0,0,0.3)
+  text-align: center
+  width: 300px
+  height: 50px
+  cursor: pointer
+
+  &:hover:before
+    background-color: green
+
+  &:before
+    width: 20px
+    height: 50px
+    float: left
+    content: ''
+    display: inline-block
+
+  &:first-child
+    border-top-left-radius: 5px
+    border-bottom-style: none
+
+  &:last-child
+    border-bottom-left-radius: 5px
+    border-top-style: none
+
+  span
+    display: inline-block
+    padding: 13px 15px
+    float: left
   
 .users
   margin-top: 125px
