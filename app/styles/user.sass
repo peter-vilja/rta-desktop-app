@@ -7,11 +7,21 @@
   cursor: pointer
 
   &:hover:before
-    background-color: green
+    content: "\e604"
+    font-family: 'icons'
+    speak: none
+    font-style: normal
+    font-weight: normal
+    font-variant: normal
+    text-transform: none
+    line-height: 1
+    color: green
+    margin-top: 12px
+    font-size: 23px
 
   &:before
-    width: 20px
-    height: 50px
+    width: 50px
+    height: 20px
     float: left
     content: ''
     display: inline-block
@@ -24,9 +34,27 @@
     border-bottom-left-radius: 5px
     border-top-style: none
 
+  &.selected
+    &:before
+      width: 50px
+      height: 20px
+      float: left
+      content: "\e604"
+      display: inline-block
+      font-family: 'icons'
+      speak: none
+      font-style: normal
+      font-weight: normal
+      font-variant: normal
+      text-transform: none
+      line-height: 1
+      color: green
+      margin-top: 12px
+      font-size: 23px
+
   span
     display: inline-block
-    padding: 13px 15px
+    padding: 13px 0px
     float: left
   
 .users
