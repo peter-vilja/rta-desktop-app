@@ -42,5 +42,5 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"users\">\n	<div class=\"user\"><span>Hanna-Mari Kinnunen</span></div>\n	<div class=\"user\"><span>Patrik Vilja</span></div>\n	<div class=\"user\"><span>Peter Vilja</span></div>\n</div>";
+  return "<div id=\"user-list\" class=\"users\">\n	<div class=\"user\"><span>Hanna-Mari Kinnunen</span></div>\n	<div class=\"user\"><span>Patrik Vilja</span></div>\n	<div class=\"user\"><span>Peter Vilja</span></div>\n</div>";
   });

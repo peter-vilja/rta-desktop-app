@@ -2,17 +2,25 @@
 
 (function() {
 
-  var content = document.getElementById('content');
+  var content = document.getElementById('content-container');
+  var tracker = document.getElementById('tracker-container');
+  var trackerContent = document.getElementById('tracker-content');
   
   document.getElementById('time').addEventListener('click', function() {
-    content.innerHTML = JST['app/templates/time.hbs']();
+    tracker.style.display = '';
+    content.innerHTML = '';
+    var time = document.getElementById('time-container');
+    if (!time)
+      trackerContent.innerHTML = JST['app/templates/time.hbs']();
   });
 
   document.getElementById('customers').addEventListener('click', function() {
+    tracker.style.display = 'none';
     content.innerHTML = JST['app/templates/customers.hbs']();
   });
 
   document.getElementById('invoices').addEventListener('click', function() {
+    tracker.style.display = 'none';
     content.innerHTML = JST['app/templates/invoices.hbs']();
   });
 
@@ -63,13 +71,16 @@ function stopTimer() {
 }
 
 function selectUsers() {
-  var container = document.getElementById('content');
-  var parent = document.getElementById('content-container');
-  container.className = container.className + ' left';
-  var content = document.createElement('div');
-  content.className = 'content left'
-  content.innerHTML = JST['app/templates/users.hbs']();
-  setTimeout(function() {
-    parent.appendChild(content)
-  }, 600);
+  var userlist = document.getElementById('user-list');
+  if (!userlist) {
+    var container = document.getElementById('tracker-content');
+    var parent = document.getElementById('tracker-container');
+    container.className = container.className + ' left';
+    var content = document.createElement('div');
+    content.className = 'content left'
+    content.innerHTML = JST['app/templates/users.hbs']();
+    setTimeout(function() {
+      parent.appendChild(content)
+    }, 600);
+  }
 }
