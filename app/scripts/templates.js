@@ -24,7 +24,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"time-form\">\n  <label for=\"comment\">Comment:</label>\n  <textarea name=\"comment\" rows=\"10\" cols=\"40\"></textarea>\n  <span id=\"users-button\" class=\"button neutral users-button\" onclick=\"selectUsers()\">ADD USERS</span>\n  <div id=\"selected-users\" class=\"selected-users\">\n    <ul id=\"selected-customers\" class=\"selected-customers\">\n      \n    </ul>\n  </div>\n  <span class=\"button green submit\">SUBMIT</span>\n</div>";
+  return "<div class=\"time-form\">\n  <label for=\"comment\">Comment:</label>\n  <textarea name=\"comment\" rows=\"10\" cols=\"40\"></textarea>\n  <span id=\"users-button\" class=\"button neutral users-button\" onclick=\"selectUsers(this)\">ADD USERS</span>\n  <div id=\"selected-users\" class=\"selected-users\">\n    <ul id=\"selected-customers\" class=\"selected-customers\">\n      \n    </ul>\n  </div>\n  <span class=\"button green submit\">SUBMIT</span>\n</div>";
   });
 
 this["JST"]["app/templates/time.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

@@ -3,7 +3,7 @@
   "main": "app/index.html",
   "window": {
     "title": "Real Time Accounting",
-    "toolbar": false,
+    "toolbar": true,
     "min_width": 400,
     "min_height": 500,
     "width": 800,

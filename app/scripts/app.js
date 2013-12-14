@@ -6,23 +6,37 @@
   var tracker = document.getElementById('tracker-container');
   var trackerContent = document.getElementById('tracker-content');
   
-  document.getElementById('time').addEventListener('click', function() {
+  document.getElementById('time').addEventListener('click', function(element) {
     tracker.style.display = '';
     content.innerHTML = '';
     var time = document.getElementById('time-container');
     if (!time)
       trackerContent.innerHTML = JST['app/templates/time.hbs']();
+    resetNavigation();
+    element.currentTarget.className = 'selected';
   });
 
-  document.getElementById('customers').addEventListener('click', function() {
+  document.getElementById('customers').addEventListener('click', function(element) {
     tracker.style.display = 'none';
     content.innerHTML = JST['app/templates/customers.hbs']();
+    resetNavigation();
+    element.currentTarget.className = 'selected';
   });
 
-  document.getElementById('invoices').addEventListener('click', function() {
+  document.getElementById('invoices').addEventListener('click', function(element) {
     tracker.style.display = 'none';
     content.innerHTML = JST['app/templates/invoices.hbs']();
+    resetNavigation();
+    element.currentTarget.className = 'selected';
   });
+
+  function resetNavigation() {
+    var navigation = [];
+    navigation.push(document.getElementById('time'), document.getElementById('customers'), document.getElementById('invoices'));
+    navigation.forEach(function(element) {
+      element.className = '';
+    });
+  }
 
 })();
 
@@ -70,7 +84,7 @@ function stopTimer() {
   parent.appendChild(wrapper);
 }
 
-function selectUsers() {
+function selectUsers(element) {
   var userlist = document.getElementById('user-list');
   if (!userlist) {
     var container = document.getElementById('tracker-content');
@@ -81,6 +95,7 @@ function selectUsers() {
     content.innerHTML = JST['app/templates/users.hbs']();
     setTimeout(function() {
       parent.appendChild(content)
+      element.parentNode.removeChild(element)
     }, 600);
   }
 }
