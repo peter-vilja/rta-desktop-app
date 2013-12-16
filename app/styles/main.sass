@@ -3,10 +3,14 @@ $green: rgb(103, 201, 95)
 
 @import 'time.sass'
 @import 'user.sass'
+@import 'customer.sass'
 
 %reset
   margin: 0
   padding: 0
+
+*, *:after, *:before
+  box-sizing: border-box
 
 body
   margin: 0 auto
@@ -30,13 +34,14 @@ body
   li
     float: left
     height: 80px
-    width: 33%
+    width: 33.33%
     min-width: 100px
     border: 1px solid rgba(0, 0, 0, 0.3)
     box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3) inset
     background: radial-gradient(circle, rgba(0, 0, 0, 0.01) 70%, rgba(0, 0, 0, 0.1) 100%)
     user-select: none
     cursor: pointer
+    display: inline-block
 
     &:active
       background: radial-gradient(circle, rgba(0,0,0,0.01) 33%, rgba(0,0,0,0.15) 90%)
@@ -129,6 +134,9 @@ body
 
 .icon-checkmark:before
   content: "\e604"
+
+.icon-arrow-down:before
+  content: "\e605"
 
 .icon
   font-size: 38px

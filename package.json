@@ -1,6 +1,7 @@
 {
   "name": "rta-desktop-app",
   "main": "app/index.html",
+  "description": "Real Time Accounting",
   "window": {
     "title": "Real Time Accounting",
     "toolbar": true,

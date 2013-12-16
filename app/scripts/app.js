@@ -104,7 +104,7 @@ function selectUser(element) {
   var customers = document.getElementById('selected-customers');
   element.className = element.className + ' selected';
   var user = document.createElement('li');
-  user.className = 'customer';
+  user.className = '';
   user.innerHTML = element.innerHTML;
   customers.appendChild(user);
   element.onclick = removeUser(element, user, customers);
@@ -112,7 +112,7 @@ function selectUser(element) {
 
 function removeUser(element, user, customers) {
   return function() {
-    element.className = 'user';
+    element.className = 'user-item';
     customers.removeChild(user);
     element.onclick = function() {
       return selectUser(element)

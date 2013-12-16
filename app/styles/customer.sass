@@ -1,0 +1,42 @@
+.customer-list
+  margin: 15px auto 0
+  width: 100%
+
+.customer
+  width: 100%
+  border: 1px solid rgba(0,0,0,0.3)
+  height: 50px
+  padding: 10px 0px
+  cursor: pointer
+  user-select: none
+
+  &:first-child
+    border-top-left-radius: 5px
+    border-top-right-radius: 5px
+    border-bottom-style: none
+
+  &:last-child
+    border-bottom-left-radius: 5px
+    border-bottom-right-radius: 5px
+    border-top-style: none
+  
+  &:before
+    width: 45px
+    height: 20px
+    float: left
+    content: "\e605"
+    display: inline-block
+    font-family: 'icons'
+    speak: none
+    font-style: normal
+    font-weight: normal
+    font-variant: normal
+    text-transform: none
+    line-height: 1
+    font-size: 23px
+    margin: 3px 0px 0px 15px
+    color: rgba(0,0,0,0.7)
+
+  span
+    padding: 3px 0px
+    display: block

@@ -6,7 +6,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<h1>Customers by Handlebars</h1>";
+  return "<div class=\"customer-list\">\n	<div class=\"customer\"><span>Hanna-Mari Kinnunen</span></div>\n  <div class=\"customer\"><span>Patrik Vilja</span></div>\n  <div class=\"customer\"><span>Peter Vilja</span></div>\n</div>";
   });
 
 this["JST"]["app/templates/invoices.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -42,5 +42,5 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div id=\"user-list\" class=\"users\">\n	<div class=\"user\" onclick=\"selectUser(this)\"><span>Hanna-Mari Kinnunen</span></div>\n	<div class=\"user\" onclick=\"selectUser(this)\"><span>Patrik Vilja</span></div>\n	<div class=\"user\" onclick=\"selectUser(this)\"><span>Peter Vilja</span></div>\n</div>";
+  return "<div id=\"user-list\" class=\"users\">\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Hanna-Mari Kinnunen</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Patrik Vilja</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Peter Vilja</span></div>\n</div>";
   });
