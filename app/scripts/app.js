@@ -119,3 +119,29 @@ function removeUser(element, user, customers) {
     }
   }
 }
+
+
+function showCustomer (element, id) {
+  element.className = element.className + ' open';
+  var customer = document.createElement('div');
+  customer.className = 'customer-content';
+  element.appendChild(customer);
+  setTimeout(function() {
+    customer.className = customer.className + ' visible';
+    customer.innerHTML = JST['app/templates/customer.hbs'](users[id]);
+  }, 10);
+  element.onclick = closeCustomer(element, customer, id);
+}
+
+function closeCustomer (element, customer, id) {
+  return function() {
+    element.className = 'customer';
+    customer.className = 'customer-content';
+    setTimeout(function() {
+      customer.parentNode.removeChild(customer);
+    }, 200);
+    element.onclick = function() {
+      return showCustomer(element, id);
+    }
+  }
+}

@@ -217,13 +217,23 @@
 .customer {
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  height: 50px;
+  min-height: 50px;
   padding: 10px 0px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.customer.open:before {
+  width: 23px;
+  height: 23px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .customer:first-child {
@@ -257,8 +267,78 @@
 }
 
 .customer span {
-  padding: 3px 0px;
+  padding: 3px 0px 3px 60px;
   display: block;
+}
+
+.customer .customer-content {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 0px;
+  margin-top: 10px;
+}
+
+.customer .visible {
+  height: 155px;
+}
+
+.customer .image {
+  width: 140px;
+  height: 100%;
+  float: left;
+  background-image: url("images/low_contrast_linen.png");
+  margin-left: 20px;
+  opacity: 0.82;
+}
+
+.customer .information {
+  float: left;
+  height: 100%;
+  width: 39, 5%;
+  margin-left: 30px;
+  overflow: hidden;
+}
+
+.customer .information span {
+  width: 150px;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0;
+}
+
+.customer .information span.bold {
+  font-family: "OpenSans";
+}
+
+.customer .invoices {
+  float: left;
+  width: 35%;
+  height: 100%;
+  overflow: hidden;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.customer .invoices > * {
+  margin-left: 20px;
+}
+
+.customer .invoices span {
+  padding: 0;
+  display: inline-block;
+}
+
+.customer .invoices span.title {
+  font-family: "OpenSans";
+}
+
+.customer .invoices span.from {
+  width: 170px;
+}
+
+.customer .invoices span.amount {
+  padding-left: 30px;
+  font-family: "OpenSans";
 }
 
 *,
@@ -376,6 +456,13 @@ body {
 @font-face {
   font-family: "OpenSansLight";
   src: url("fonts/OpenSans-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("fonts/OpenSans-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
