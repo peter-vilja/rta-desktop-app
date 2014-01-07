@@ -1,1 +1,18 @@
-<h1>Invoices by Handlebars</h1>
+<div class="inv">
+	<div class="invoiced">
+		<div class="bold title">OPEN</div>
+		<div class="invoicedlist">
+			{{#each invoices.open}}
+				<div class="invoice"><span class="date">{{this.date}}</span><span class="from" onclick="showWithId('{{this.from}}')">{{this.from}}</span><span class="amount bold">{{this.amount}}</span></div>
+			{{/each}}
+		</div>
+	</div>
+	<div class="paid">
+		<div class="bold title">PAID</div>
+		<div class="paidlist">
+			{{#each invoices.paid}}
+				<div class="invoice"><span class="date">{{this.date}}</span><span class="from" onclick="showWithId('{{this.from}}')">{{this.from}}</span><span class="amount colorgreen bold">{{this.amount}}</span></div>
+			{{/each}}
+		</div>
+	</div>
+</div>

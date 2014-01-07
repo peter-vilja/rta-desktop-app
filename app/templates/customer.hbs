@@ -6,7 +6,7 @@
 </div>
 <div class="invoices">
 	<span class="title">Invoices</span>
-	{{#each invoices}}
+	{{#each invoices.paid}}
 		<div class="invoice"><span class="from">{{this.from}}</span><span class="amount">{{this.amount}}</span><div>
 	{{/each}}
 </div>

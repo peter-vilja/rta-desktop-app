@@ -295,7 +295,7 @@
 .customer .information {
   float: left;
   height: 100%;
-  width: 39, 5%;
+  width: 36.5%;
   margin-left: 30px;
   overflow: hidden;
 }
@@ -339,6 +339,65 @@
 .customer .invoices span.amount {
   padding-left: 30px;
   font-family: "OpenSans";
+}
+
+.inv {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.invoiced,
+.paid {
+  float: left;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.invoiced > *,
+.paid > * {
+  margin: 0 auto;
+  width: 330px;
+}
+
+.invoiced .title,
+.paid .title {
+  font-size: 20px;
+}
+
+.invoiced .invoicedlist,
+.invoiced .paidlist,
+.paid .invoicedlist,
+.paid .paidlist {
+  margin-top: 10px;
+}
+
+.invoiced .invoice,
+.paid .invoice {
+  line-height: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.invoiced .from,
+.paid .from {
+  width: 200px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.invoiced .from:hover,
+.paid .from:hover {
+  color: black;
+}
+
+.invoiced .date,
+.paid .date {
+  width: 100px;
+  display: inline-block;
+}
+
+.invoiced .colorgreen,
+.paid .colorgreen {
+  color: green;
 }
 
 *,
@@ -437,6 +496,10 @@ body {
 
 .content.left {
   width: 50%;
+}
+
+.bold {
+  font-family: "OpenSans";
 }
 
 @media only screen and (min-width: 768px) {

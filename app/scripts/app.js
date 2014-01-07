@@ -25,7 +25,7 @@
 
   document.getElementById('invoices').addEventListener('click', function(element) {
     tracker.style.display = 'none';
-    content.innerHTML = JST['app/templates/invoices.hbs']();
+    content.innerHTML = JST['app/templates/invoices.hbs'](users);
     resetNavigation();
     element.currentTarget.className = 'selected';
   });
@@ -144,4 +144,15 @@ function closeCustomer (element, customer, id) {
       return showCustomer(element, id);
     }
   }
+}
+
+function showWithId (name) {
+  var names = [];
+  names['Peter Vilja'] = 'peter';
+  names['Patrik Vilja'] = 'patrik';
+  names['Hanna-Mari Kinnunen'] = 'hannis';
+
+  var id = names[name];
+  document.getElementById('customers').click();
+  document.getElementById(id).click();
 }
