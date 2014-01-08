@@ -70,14 +70,36 @@ function startTimer() {
   button.className = 'button stop';
   button.innerHTML = 'STOP TIMER  ';
   button.onclick = stopTimer;
+  var reset = document.createElement('span');
+  reset.className = 'button reset';
+  reset.innerHTML = 'RESET TIMER';
+  reset.onclick = resetTimer(reset);
+  reset.id = 'reset-button';
+  document.getElementById('time-container').appendChild(reset);
+}
+
+function resetTimer (reset) {
+  return function () {
+    clearInterval(timer);
+    var button = document.getElementById('timer-button');
+    button.className = 'button start';
+    button.innerHTML = 'START TIMER';
+    button.onclick = startTimer;
+    reset.parentNode.removeChild(reset);
+    document.getElementById('elapsed').innerHTML = '00:00:00';
+  }
 }
 
 function stopTimer() {
   clearInterval(timer);
   var button = document.getElementById('timer-button');
+  var reset = document.getElementById('reset-button');
   var parent = document.getElementById('time-container');
-  
+  var con = document.getElementById('continue');
+
+  con.className = 'continue';
   button.parentNode.removeChild(button);
+  reset.parentNode.removeChild(reset);
   parent.className = parent.className + ' up';
   var wrapper = document.createElement('div');
   wrapper.innerHTML = JST['app/templates/time-form.hbs'](); 

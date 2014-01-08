@@ -31,6 +31,26 @@
 .center
   margin: 0 auto
 
+.arrow
+  font-size: 16x
+
+.back
+  font-family: 'OpenSans'
+  font-size: 17px
+
+.hidden
+  display: none
+
+.continue
+  padding: 10px 10px
+  width: 120px
+  margin-top: 10px
+  height: 48px
+  cursor: pointer
+  &:hover
+    border-top: 1px solid rgba(0,0,0,0.2)
+    border-bottom: 1px solid rgba(0,0,0,0.2)
+
 .time-container
   width: 200px
   margin: 120px auto 0
@@ -60,6 +80,18 @@
 
     &:active
       background: radial-gradient(circle, $green 10%, #5DB556 100%)
+
+  .reset
+    padding: 14px 34px
+    margin-top: 10px
+    background-color: $blue
+    background: radial-gradient(circle, $blue 70%, #1779E3 100%)
+
+    &:hover
+      background: radial-gradient(circle, $blue 80%, #1779E3 100%)
+
+    &:active
+      background: radial-gradient(circle, $blue 10%, #1779E3 100%)
 
   .stop
     padding: 14px 34px

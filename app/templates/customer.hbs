@@ -5,8 +5,8 @@
 	<span class="bold">E-bank</span><span class="email">{{ebank}}</span><br/>
 </div>
 <div class="invoices">
-	<span class="title">Invoices</span>
+	<span class="title">Paid invoices</span>
 	{{#each invoices.paid}}
-		<div class="invoice"><span class="from">{{this.from}}</span><span class="amount">{{this.amount}}</span><div>
+		<div class="invoice"><span class="date">{{this.date}}</span><span class="from">{{this.from}}</span><span class="amount">{{this.amount}}</span></div>
 	{{/each}}
 </div>

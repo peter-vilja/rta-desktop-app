@@ -8,11 +8,13 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n		<div class=\"invoice\"><span class=\"from\">"
+  buffer += "\n		<div class=\"invoice\"><span class=\"date\">"
+    + escapeExpression(((stack1 = (depth0 && depth0.date)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</span><span class=\"from\">"
     + escapeExpression(((stack1 = (depth0 && depth0.from)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</span><span class=\"amount\">"
     + escapeExpression(((stack1 = (depth0 && depth0.amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</span><div>\n	";
+    + "</span></div>\n	";
   return buffer;
   }
 
@@ -28,7 +30,7 @@ function program1(depth0,data) {
   if (stack1 = helpers.ebank) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.ebank); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span><br/>\n</div>\n<div class=\"invoices\">\n	<span class=\"title\">Invoices</span>\n	";
+    + "</span><br/>\n</div>\n<div class=\"invoices\">\n	<span class=\"title\">Paid invoices</span>\n	";
   stack2 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.invoices)),stack1 == null || stack1 === false ? stack1 : stack1.paid), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\n</div>";
@@ -104,7 +106,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div id=\"time-container\" class=\"time-container\">\n	<span id=\"elapsed\" class=\"time\">00:00:00</span>\n  <span id=\"timer-button\" class=\"button start\" onclick=\"startTimer()\">START TIMER</span>\n</div>";
+  return "<div id=\"continue\" class=\"continue hidden\"><span class=\"arrow\"><</span><span id=\"back\" class=\"back\">  CONTINUE</span></div>\n<div id=\"time-container\" class=\"time-container\">\n	<span id=\"elapsed\" class=\"time\">00:00:00</span>\n	<span id=\"timer-button\" class=\"button start\" onclick=\"startTimer()\">START TIMER</span>\n</div>";
   });
 
 this["JST"]["app/templates/users.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

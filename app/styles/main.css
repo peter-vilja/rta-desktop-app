@@ -50,6 +50,32 @@
   margin: 0 auto;
 }
 
+.arrow {
+  font-size: 16x;
+}
+
+.back {
+  font-family: "OpenSans";
+  font-size: 17px;
+}
+
+.hidden {
+  display: none;
+}
+
+.continue {
+  padding: 10px 10px;
+  width: 120px;
+  margin-top: 10px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.continue:hover {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .time-container {
   width: 200px;
   margin: 120px auto 0;
@@ -89,6 +115,24 @@
 .time-container .start:active {
   background: -webkit-radial-gradient(circle, #67c95f 10%, #5db556 100%);
   background: radial-gradient(circle, #67c95f 10%, #5db556 100%);
+}
+
+.time-container .reset {
+  padding: 14px 34px;
+  margin-top: 10px;
+  background-color: #1986fb;
+  background: -webkit-radial-gradient(circle, #1986fb 70%, #1779e3 100%);
+  background: radial-gradient(circle, #1986fb 70%, #1779e3 100%);
+}
+
+.time-container .reset:hover {
+  background: -webkit-radial-gradient(circle, #1986fb 80%, #1779e3 100%);
+  background: radial-gradient(circle, #1986fb 80%, #1779e3 100%);
+}
+
+.time-container .reset:active {
+  background: -webkit-radial-gradient(circle, #1986fb 10%, #1779e3 100%);
+  background: radial-gradient(circle, #1986fb 10%, #1779e3 100%);
 }
 
 .time-container .stop {
@@ -295,13 +339,14 @@
 .customer .information {
   float: left;
   height: 100%;
-  width: 36.5%;
-  margin-left: 30px;
+  max-width: 300px;
+  width: 30%;
+  margin-left: 20px;
   overflow: hidden;
 }
 
 .customer .information span {
-  width: 150px;
+  width: 140px;
   display: inline-block;
   overflow: hidden;
   padding: 0;
@@ -317,6 +362,16 @@
   height: 100%;
   overflow: hidden;
   border-left: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.customer .invoices .invoice {
+  line-height: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.customer .invoices .date {
+  width: 100px;
+  display: inline-block;
 }
 
 .customer .invoices > * {
