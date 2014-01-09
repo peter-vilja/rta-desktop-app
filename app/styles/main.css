@@ -246,10 +246,12 @@
 }
 
 .time-container .time-form #amount-container .amount-input {
-  width: 70px;
+  width: 65px;
   height: 33px;
-  margin-left: 165px;
-  font-size: 18px;
+  margin-left: 170px;
+  font-size: 16px;
+  font-family: "OpenSansLight";
+  text-align: right;
 }
 
 .user-item {
@@ -353,8 +355,8 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
   padding: 7px 15px;
   margin-left: 10px;
-  background: -webkit-radial-gradient(circle, rgba(0, 0, 0, 0.01) 70%, rgba(0, 0, 0, 0.1) 100%);
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.01) 70%, rgba(0, 0, 0, 0.1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(0, 0, 0, 0.01) 76%, rgba(0, 0, 0, 0.17) 93%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.01) 76%, rgba(0, 0, 0, 0.17) 93%);
 }
 
 .customer {
