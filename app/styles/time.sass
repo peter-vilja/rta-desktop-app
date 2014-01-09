@@ -32,7 +32,7 @@
   margin: 0 auto
 
 .arrow
-  font-size: 16x
+  font-size: 16px
 
 .back
   font-family: 'OpenSans'
@@ -67,7 +67,8 @@
     font-size: 46px
     display: block
     color: rgba(0,0,0,0.8)
-    width: 180px
+    width: 185px
+    font-family: 'OpenSansLight'
 
   .start
     padding: 14px 34px
@@ -111,7 +112,7 @@
 
     label
       display: block
-      width: 80px
+      width: 110px
 
     .submit
       margin-top: 10px
@@ -124,3 +125,62 @@
 
     .selected-customers
       list-style: circle
+
+    .billable-label
+      display: inline-block
+      float: left
+      margin-top: 7px
+
+    .billable
+      width: 110px
+      border: 1px solid rgba(0,0,0,0.4)
+      margin-left: 85px
+      display: inline-block
+      height: 33px
+      border-radius: 2px
+
+      .off, .on
+        width: 50px
+        height: 100%
+        border: 1px solid rgba(0,0,0,0.3)
+        display: inline-block
+        border-radius: 4px
+        cursor: pointer
+        z-index: 100
+        transition: all 0.3s ease
+        background-color: rgba(251, 255, 246, 1)
+        position: relative
+
+      .off
+        float: left
+        left: -33px
+
+      .on
+        float: left
+        left: 23px
+
+      .on-text, .off-text
+        z-index: 10
+
+      .on-text
+        float: left
+        margin-top: 5px
+        margin-left: 10px
+        color: $green
+
+      .off-text
+        float: left
+        margin-top: 5px
+        margin-left: -15px
+
+    #amount-container
+      margin-top: 10px
+
+      &.hidden
+        display: none
+
+      .amount-input
+        width: 70px
+        height: 33px
+        margin-left: 165px
+        font-size: 18px

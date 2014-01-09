@@ -1,5 +1,23 @@
 this["JST"] = this["JST"] || {};
 
+this["JST"]["app/templates/amount.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div id=\"amount\">\n  <span>Amount</span>\n  <input id=\"amount-input\" class=\"amount-input\" type=\"text\"/><span>&euro;</span>\n</div>";
+  });
+
+this["JST"]["app/templates/billable.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<label class=\"billable-label\" for=\"billable\">Billable</label>\n<div class=\"billable\" name=\"billable\">\n	<span class=\"on-text\">ON</span>\n	<span id=\"billable-button\" onclick=\"moveRight(this);\" class=\"off\"></span>\n	<span class=\"off-text\">OFF</span>\n</div>";
+  });
+
 this["JST"]["app/templates/customer.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -43,7 +61,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"customer-list\">\n	<div class=\"customer\" id='hannis' onclick=\"showCustomer(this, 'hannamari');\"><span>Hanna-Mari Kinnunen</span></div>\n  <div class=\"customer\" id='patrik' onclick=\"showCustomer(this, 'patrik');\"><span>Patrik Vilja</span></div>\n  <div class=\"customer\" id='peter' onclick=\"showCustomer(this, 'peter');\"><span>Peter Vilja</span></div>\n</div>";
+  return "<div class=\"customer-list\">\n  <div class=\"search-container\">\n    <input class=\"search\" type=\"text\" placeholder=\"Search\"/><span class=\"icon-search button search-button\"></span>\n  </div>\n  <div class=\"customer\" id='hannis' onclick=\"showCustomer(this, 'hannamari');\"><span>Hanna-Mari Kinnunen</span></div>\n  <div class=\"customer\" id='patrik' onclick=\"showCustomer(this, 'patrik');\"><span>Patrik Vilja</span></div>\n  <div class=\"customer\" id='peter' onclick=\"showCustomer(this, 'peter');\"><span>Peter Vilja</span></div>\n</div>";
   });
 
 this["JST"]["app/templates/invoices.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -97,7 +115,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"time-form\">\n  <label for=\"comment\">Comment:</label>\n  <textarea name=\"comment\" rows=\"10\" cols=\"40\"></textarea>\n  <span id=\"users-button\" class=\"button neutral users-button\" onclick=\"selectUsers(this)\">ADD USERS</span>\n  <div id=\"selected-users\" class=\"selected-users\">\n    <ul id=\"selected-customers\" class=\"selected-customers\">\n      \n    </ul>\n  </div>\n  <span class=\"button green submit\">SUBMIT</span>\n</div>";
+  return "<div class=\"time-form\">\n  <label for=\"comment\">Add comment:</label>\n  <textarea name=\"comment\" rows=\"10\" cols=\"40\"></textarea>\n  <span id=\"users-button\" class=\"button neutral users-button\" onclick=\"selectUsers(this)\">ADD CUSTOMERS</span>\n  <div id=\"selected-users\" class=\"selected-users\">\n    <ul id=\"selected-customers\" class=\"selected-customers\">\n      \n    </ul>\n  </div>\n  <div id=\"billable\">\n  \n  </div>\n  <div id=\"amount-container\">\n  	\n  </div>\n  <span class=\"button green submit\">SUBMIT</span>\n</div>";
   });
 
 this["JST"]["app/templates/time.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -115,5 +133,5 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div id=\"user-list\" class=\"users\">\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Hanna-Mari Kinnunen</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Patrik Vilja</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Peter Vilja</span></div>\n</div>";
+  return "<div id=\"user-list\" class=\"users\">\n	<div>Select customer(s):</div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Hanna-Mari Kinnunen</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Patrik Vilja</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Peter Vilja</span></div>\n</div>";
   });

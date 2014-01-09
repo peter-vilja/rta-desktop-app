@@ -96,11 +96,19 @@ function stopTimer() {
   var reset = document.getElementById('reset-button');
   var parent = document.getElementById('time-container');
   var con = document.getElementById('continue');
+  var elapsed = document.getElementById('elapsed');
 
   con.className = 'continue';
   button.parentNode.removeChild(button);
   reset.parentNode.removeChild(reset);
+
   parent.className = parent.className + ' up';
+  var time = document.createElement('input');
+  time.value = elapsed.innerHTML;
+  time.type = 'text';
+  time.className = 'time';
+  elapsed.parentNode.removeChild(elapsed);
+  parent.appendChild(time);
   var wrapper = document.createElement('div');
   wrapper.innerHTML = JST['app/templates/time-form.hbs'](); 
   parent.appendChild(wrapper);
@@ -108,6 +116,7 @@ function stopTimer() {
 
 function selectUsers(element) {
   var userlist = document.getElementById('user-list');
+  var billable = document.getElementById('billable');
   if (!userlist) {
     var container = document.getElementById('tracker-content');
     var parent = document.getElementById('tracker-container');
@@ -118,6 +127,7 @@ function selectUsers(element) {
     setTimeout(function() {
       parent.appendChild(content)
       element.parentNode.removeChild(element)
+      billable.innerHTML = JST['app/templates/billable.hbs']();
     }, 600);
   }
 }
@@ -177,4 +187,25 @@ function showWithId (name) {
   var id = names[name];
   document.getElementById('customers').click();
   document.getElementById(id).click();
+}
+
+function moveRight (button) {
+  button.className = 'on';
+  button.onclick = function () {
+    return moveLeft(button);
+  }
+  var container = document.getElementById('amount-container');
+  if (document.getElementById('amount-input')) {
+    container.className = 'amount-container';
+  } else {
+    container.innerHTML = JST['app/templates/amount.hbs']();
+  }
+}
+
+function moveLeft (button) {
+  button.className = 'off';
+  button.onclick = function () {
+    return moveRight(button);
+  }
+  document.getElementById('amount-container').className = 'amount-container hidden';
 }
