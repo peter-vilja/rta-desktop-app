@@ -6,7 +6,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div id=\"amount\">\n  <span>Amount</span>\n  <input id=\"amount-input\" class=\"amount-input\" type=\"text\"/><span>&euro;</span>\n</div>";
+  return "<div id=\"amount\">\n  <span>Invoice amount</span>\n  <input id=\"amount-input\" class=\"amount-input\" type=\"text\"/><span>&euro;</span>\n</div>";
   });
 
 this["JST"]["app/templates/billable.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -109,13 +109,31 @@ function program3(depth0,data) {
   return buffer;
   });
 
+this["JST"]["app/templates/receipt.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<div id=\"receipt-details\" class=\"recipient-details\">\n	<span class=\"title\">RECIPIENT DETAILS</span>\n	<div class=\"detail\"><span>Name</span><span class=\"right\">Hanna-Mari Kinnunen</span></div>\n	<div class=\"detail\"><span>Company</span><span class=\"right\">My Company</span></div>\n	<div class=\"detail\"><span>Bank account number</span><span class=\"right\">FI 12345 56789 1001</span></div>\n</div>\n<div class=\"invoice-details\">\n	<span class=\"title\">PAYER AND INVOICE DETAILS</span>\n	<div class=\"detail\"><span>Name</span><span class=\"right\">";
+  if (stack1 = helpers.name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.name); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</span></div>\n	<div class=\"detail\"><span>Reference number</span><span class=\"right\">12334567</span></div>\n	<div class=\"detail\"><span>Subject</span><span class=\"right\">Gym hour</span></div>\n	<div class=\"detail\"><span>Due day</span><span class=\"right\">29/12/13</span></div>\n	<div class=\"detail\"><span>Amount</span><span class=\"right\">";
+  if (stack1 = helpers.amount) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.amount); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + " &euro;</span></div>\n</div>\n<span class=\"button green\" onclick=\"toStart();\">SEND INVOICE</span>\n<span class=\"button red\" onclick=\"toStart();\">CANCEL</span>\n<span class=\"skip\" onclick=\"toStart();\">Skip</span>";
+  return buffer;
+  });
+
 this["JST"]["app/templates/time-form.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"time-form\">\n  <label for=\"comment\">Add comment:</label>\n  <textarea name=\"comment\" rows=\"10\" cols=\"40\"></textarea>\n  <span id=\"users-button\" class=\"button neutral users-button\" onclick=\"selectUsers(this)\">ADD CUSTOMERS</span>\n  <div id=\"selected-users\" class=\"selected-users\">\n    <ul id=\"selected-customers\" class=\"selected-customers\">\n      \n    </ul>\n  </div>\n  <div id=\"billable\">\n  \n  </div>\n  <div id=\"amount-container\">\n  	\n  </div>\n  <span class=\"button green submit\">SUBMIT</span>\n</div>";
+  return "<div class=\"time-form\">\n  <label for=\"comment\">Add comment:</label>\n  <textarea name=\"comment\" rows=\"10\" cols=\"40\"></textarea>\n  <span id=\"users-button\" class=\"button neutral users-button\" onclick=\"selectUsers(this)\">ADD CUSTOMERS</span>\n  <div id=\"selected-users\" class=\"selected-users\">\n    <ul id=\"selected-customers\" class=\"selected-customers\">\n      \n    </ul>\n  </div>\n  <div id=\"billable\">\n  \n  </div>\n  <div id=\"amount-container\">\n  	\n  </div>\n  <span class=\"button green submit\" onclick=\"submitTimer();\">SUBMIT</span>\n</div>";
   });
 
 this["JST"]["app/templates/time.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -124,7 +142,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div id=\"continue\" class=\"continue hidden\"><span class=\"arrow\"><</span><span id=\"back\" class=\"back\">  CONTINUE</span></div>\n<div id=\"time-container\" class=\"time-container\">\n	<span id=\"elapsed\" class=\"time\">00:00:00</span>\n	<span id=\"timer-button\" class=\"button start\" onclick=\"startTimer()\">START TIMER</span>\n</div>";
+  return "<div id=\"continue\" class=\"continue hidden\" onclick=\"toStart();\"><span class=\"arrow\"><</span><span id=\"back\" class=\"back\">  BACK</span></div>\n<div id=\"new\" class=\"add button\" onclick=\"stopTimer();\"><span>ADD WORK HOURS</span></div>\n<div id=\"time-container\" class=\"time-container\">\n	<span id=\"elapsed\" class=\"time\">00:00:00</span>\n	<span id=\"timer-button\" class=\"button start\" onclick=\"startTimer()\">START TIMER</span>\n</div>";
   });
 
 this["JST"]["app/templates/users.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -133,5 +151,5 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div id=\"user-list\" class=\"users\">\n	<div>Select customer(s):</div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Hanna-Mari Kinnunen</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Patrik Vilja</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this)\"><span>Peter Vilja</span></div>\n</div>";
+  return "<div id=\"user-list\" class=\"users\">\n	<div>Select customer(s):</div>\n	<div class=\"user-item\" onclick=\"selectUser(this.firstChild)\"><span>Hanna-Mari Kinnunen</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this.firstChild)\"><span>Patrik Vilja</span></div>\n	<div class=\"user-item\" onclick=\"selectUser(this.firstChild)\"><span>Peter Vilja</span></div>\n</div>";
   });

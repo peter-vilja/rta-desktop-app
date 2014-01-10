@@ -27,6 +27,22 @@
   background: radial-gradient(circle, #67c95f 10%, #5db556 100%);
 }
 
+.red {
+  background-color: #ae534a;
+  background: -webkit-radial-gradient(circle, #ae534a 70%, #9d4b43 100%);
+  background: radial-gradient(circle, #ae534a 70%, #9d4b43 100%);
+}
+
+.red:hover {
+  background: -webkit-radial-gradient(circle, #ae534a 80%, #9d4b43 100%);
+  background: radial-gradient(circle, #ae534a 80%, #9d4b43 100%);
+}
+
+.red:active {
+  background: -webkit-radial-gradient(circle, #ae534a 10%, #9d4b43 100%);
+  background: radial-gradient(circle, #ae534a 10%, #9d4b43 100%);
+}
+
 .neutral {
   -webkit-box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3) inset;
   box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3) inset;
@@ -65,7 +81,7 @@
 
 .continue {
   padding: 10px 10px;
-  width: 120px;
+  width: 80px;
   margin-top: 10px;
   height: 48px;
   cursor: pointer;
@@ -74,6 +90,28 @@
 .continue:hover {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.add {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  float: right;
+  margin-top: 10px;
+}
+
+.add span {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 13px;
+  float: left;
+  margin-top: 4px;
+}
+
+.add span:before {
+  content: "+";
+  display: inline-block;
+  font-size: 30px;
+  float: left;
+  margin-top: -4px;
+  line-height: 25px;
 }
 
 .time-container {
@@ -98,6 +136,7 @@
   color: rgba(0, 0, 0, 0.8);
   width: 185px;
   font-family: "OpenSansLight";
+  margin-bottom: 15px;
 }
 
 .time-container .start {
@@ -154,38 +193,51 @@
   background: radial-gradient(circle, #ae534a 10%, #9d4b43 100%);
 }
 
-.time-container .time-form {
+.time-wrapper > * {
+  margin: 0 auto;
+}
+
+.time-wrapper .time {
+  font-size: 46px;
+  display: block;
+  color: rgba(0, 0, 0, 0.8);
+  width: 185px;
+  font-family: "OpenSansLight";
+  margin-bottom: 15px;
+}
+
+.time-wrapper .time-form {
   width: 305px;
   margin: 0 auto;
 }
 
-.time-container .time-form label {
+.time-wrapper .time-form label {
   display: block;
   width: 110px;
 }
 
-.time-container .time-form .submit {
+.time-wrapper .time-form .submit {
   margin-top: 10px;
   display: block;
   text-align: center;
 }
 
-.time-container .time-form .users-button {
+.time-wrapper .time-form .users-button {
   display: block;
   text-align: center;
 }
 
-.time-container .time-form .selected-customers {
+.time-wrapper .time-form .selected-customers {
   list-style: circle;
 }
 
-.time-container .time-form .billable-label {
+.time-wrapper .time-form .billable-label {
   display: inline-block;
   float: left;
   margin-top: 7px;
 }
 
-.time-container .time-form .billable {
+.time-wrapper .time-form .billable {
   width: 110px;
   border: 1px solid rgba(0, 0, 0, 0.4);
   margin-left: 85px;
@@ -194,8 +246,8 @@
   border-radius: 2px;
 }
 
-.time-container .time-form .billable .off,
-.time-container .time-form .billable .on {
+.time-wrapper .time-form .billable .off,
+.time-wrapper .time-form .billable .on {
   width: 50px;
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -209,46 +261,46 @@
   position: relative;
 }
 
-.time-container .time-form .billable .off {
+.time-wrapper .time-form .billable .off {
   float: left;
   left: -33px;
 }
 
-.time-container .time-form .billable .on {
+.time-wrapper .time-form .billable .on {
   float: left;
   left: 23px;
 }
 
-.time-container .time-form .billable .on-text,
-.time-container .time-form .billable .off-text {
+.time-wrapper .time-form .billable .on-text,
+.time-wrapper .time-form .billable .off-text {
   z-index: 10;
 }
 
-.time-container .time-form .billable .on-text {
+.time-wrapper .time-form .billable .on-text {
   float: left;
   margin-top: 5px;
   margin-left: 10px;
   color: #67c95f;
 }
 
-.time-container .time-form .billable .off-text {
+.time-wrapper .time-form .billable .off-text {
   float: left;
   margin-top: 5px;
   margin-left: -15px;
 }
 
-.time-container .time-form #amount-container {
+.time-wrapper .time-form #amount-container {
   margin-top: 10px;
 }
 
-.time-container .time-form #amount-container.hidden {
+.time-wrapper .time-form #amount-container.hidden {
   display: none;
 }
 
-.time-container .time-form #amount-container .amount-input {
+.time-wrapper .time-form #amount-container .amount-input {
   width: 65px;
   height: 33px;
-  margin-left: 170px;
+  margin-left: 118px;
   font-size: 16px;
   font-family: "OpenSansLight";
   text-align: right;
@@ -554,6 +606,51 @@
 .invoiced .colorgreen,
 .paid .colorgreen {
   color: green;
+}
+
+.receipt-container {
+  width: 450px;
+  margin: 10px auto 0;
+}
+
+.receipt-container > div {
+  margin-bottom: 20px;
+}
+
+.receipt-container .button {
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.receipt-container .skip {
+  color: #1986fb;
+  cursor: pointer;
+}
+
+.receipt-container .title {
+  color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  width: 100%;
+  display: block;
+  line-height: 40px;
+}
+
+.receipt-container .detail {
+  width: 98%;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-left: 5px;
+  line-height: 40px;
+}
+
+.receipt-container .detail span:first-child {
+  font-family: "OpenSans";
+}
+
+.receipt-container .detail .right {
+  float: right;
+  margin-right: 10px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 *,

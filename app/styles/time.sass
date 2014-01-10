@@ -17,6 +17,16 @@
   &:active
     background: radial-gradient(circle, $green 10%, #5DB556 100%)
 
+.red
+  background-color: $red
+  background: radial-gradient(circle, $red 70%, #9D4B43 100%)
+
+  &:hover
+    background: radial-gradient(circle, $red 80%, #9D4B43 100%)
+
+  &:active
+    background: radial-gradient(circle, $red 10%, #9D4B43 100%)
+
 .neutral
   box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3) inset
   color: rgba(0,0,0,0.8)
@@ -43,13 +53,33 @@
 
 .continue
   padding: 10px 10px
-  width: 120px
+  width: 80px
   margin-top: 10px
   height: 48px
   cursor: pointer
   &:hover
     border-top: 1px solid rgba(0,0,0,0.2)
     border-bottom: 1px solid rgba(0,0,0,0.2)
+
+.add
+  border: 1px solid rgba(0,0,0,0.3)
+  float: right
+  margin-top: 10px
+  
+  span 
+    color: rgba(0,0,0,0.7)
+    font-size: 13px
+    float: left
+    margin-top: 4px
+
+    &:before
+      content: "+"
+      display: inline-block
+      font-size: 30px
+      float: left
+      margin-top: -4px
+      line-height: 25px
+
 
 .time-container
   width: 200px
@@ -69,6 +99,7 @@
     color: rgba(0,0,0,0.8)
     width: 185px
     font-family: 'OpenSansLight'
+    margin-bottom: 15px
 
   .start
     padding: 14px 34px
@@ -105,6 +136,20 @@
 
     &:active
       background: radial-gradient(circle, $red 10%, #9D4B43 100%)
+
+
+.time-wrapper
+
+  > *
+    margin: 0 auto
+
+  .time
+    font-size: 46px
+    display: block
+    color: rgba(0,0,0,0.8)
+    width: 185px
+    font-family: 'OpenSansLight'
+    margin-bottom: 15px
 
   .time-form
     width: 305px
@@ -182,7 +227,7 @@
       .amount-input
         width: 65px
         height: 33px
-        margin-left: 170px
+        margin-left: 118px
         font-size: 16px
         font-family: 'OpenSansLight'
         text-align: right
