@@ -160,7 +160,7 @@ function program3(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div id=\"backtoinvoices\" class=\"back-button hidden\" onclick=\"toInvoices();\"><span class=\"arrow\"><</span><span class=\"back\">  BACK</span></div>\n<div id=\"inv-receipt\" class=\"inv-receipt\"></div>\n<div id=\"inv\" class=\"inv\">\n	<div class=\"invoiced\">\n		<div class=\"bold title\">OPEN</div>\n		<div class=\"invoicedlist\">\n			";
+  buffer += "<div id=\"backtoinvoices\" class=\"back-button hidden\" onclick=\"toInvoices();\"><span class=\"arrow\"><</span><span class=\"back\">  BACK</span></div>\n<div id=\"inv-receipt\" class=\"inv-receipt\"></div>\n<div class=\"search-container\">\n    <input class=\"search\" type=\"text\" placeholder=\"Search\"/><span class=\"icon-search button search-button\"></span>\n</div>\n<div id=\"inv\" class=\"inv\">\n	<div class=\"invoiced\">\n		<div class=\"bold title\">OPEN</div>\n		<div class=\"invoicedlist\">\n			";
   stack2 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.invoices)),stack1 == null || stack1 === false ? stack1 : stack1.open), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\n		</div>\n	</div>\n	<div class=\"paid\">\n		<div class=\"bold title\">PAID</div>\n		<div class=\"paidlist\">\n			";
