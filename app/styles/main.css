@@ -114,6 +114,24 @@
   line-height: 25px;
 }
 
+.records {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  float: left;
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 16px;
+  padding: 15px 30px;
+}
+
+.records span {
+  font-family: "OpenSansLight";
+  margin-left: 10px;
+  font-size: 14px;
+  display: inline-block;
+  float: left;
+  margin-top: 2px;
+}
+
 .time-container {
   width: 200px;
   margin: 120px auto 0;
@@ -982,6 +1000,11 @@ body {
 
 .icon-search:before {
   content: "\e606";
+}
+
+.icon-records:before {
+  content: "\e607";
+  float: left;
 }
 
 .icon {

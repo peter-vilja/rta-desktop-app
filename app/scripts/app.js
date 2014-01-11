@@ -344,3 +344,10 @@ function toCustomers () {
   var customerList = document.getElementById('customer-list');
   customerList.className = 'customer-list';
 }
+
+function showRecords () {
+  var trackerContent = document.getElementById('tracker-content');
+  trackerContent.className = trackerContent.className + ' hidden';
+  var records = document.getElementById('record-content');
+  records.innerHTML = JST['app/templates/records.hbs']();
+}
