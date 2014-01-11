@@ -1,20 +1,55 @@
 <div id="backtoinvoices" class="back-button hidden" onclick="toInvoices();"><span class="arrow"><</span><span class="back">  BACK</span></div>
 <div id="inv-receipt" class="inv-receipt"></div>
 <div id="inv" class="inv">
+<div class="search-container">
+    <input class="search" type="text" placeholder="Search"/><span class="icon-search button search-button"></span>
+  </div>
 	<div class="invoiced">
 		<div class="bold title">OPEN</div>
 		<div class="invoicedlist">
+			<ul>
 			{{#each invoices.open}}
-				<div class="inv-invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}')"><span class="date">{{this.date}}</span><span class="from">{{this.from}}</span><span class="amount bold">{{this.amount}}</span></div>
+				<li class="invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}')">
+					<div class="date">{{this.date}}</div>
+					<div>
+						<div class="name">{{this.from}}</div>
+						<div class="amount">{{this.amount}}</div>
+					</div>
+				</li>
 			{{/each}}
+			</ul>
+		</div>
+	</div>
+	<div class="sent">
+		<div class="bold title">SENT</div>
+		<div class="sentlist">
+			<ul>
+			{{#each invoices.sent}}
+				<li class="invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}')">
+					<div class="date">{{this.date}}</div>
+					<div>
+						<div class="name">{{this.from}}</div>
+						<div class="amount">{{this.amount}}</div>
+					</div>
+				</li>
+			{{/each}}
+			</ul>
 		</div>
 	</div>
 	<div class="paid">
 		<div class="bold title">PAID</div>
 		<div class="paidlist">
+			<ul>
 			{{#each invoices.paid}}
-				<div class="inv-invoice" onclick="showWithId({{this.invoiceId}}, '{{this.from}}', '{{this.amount}}')"><span class="date">{{this.date}}</span><span class="from">{{this.from}}</span><span class="amount colorgreen bold">{{this.amount}}</span></div>
+				<li class="invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}')">
+					<div class="date">{{this.date}}</div>
+					<div>
+						<div class="name">{{this.from}}</div>
+						<div class="amount colorgreen bold">{{this.amount}}</div>
+					</div>
+				</li>
 			{{/each}}
+			</ul>
 		</div>
 	</div>
 </div>

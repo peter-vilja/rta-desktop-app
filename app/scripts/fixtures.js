@@ -296,6 +296,67 @@
           amount: '20e',
           date: '01/10/2013',
           invoiceId: '10031044'
+        }],
+      sent: [
+        {
+          from: 'Peter Vilja',
+          amount: '10e',
+          date: '29/12/2013',
+          invoiceId: '10031035'
+        },
+        {
+          from: 'Hanna-Mari Kinnunen',
+          amount: '10e',
+          date: '28/12/2013',
+          invoiceId: '10031036'
+        },
+        {
+          from: 'Hanna-Mari Kinnunen',
+          amount: '15e',
+          date: '16/12/2013',
+          invoiceId: '10031037'
+        },
+        {
+          from: 'Peter Vilja',
+          amount: '15e',
+          date: '15/12/2013',
+          invoiceId: '10031038'
+        },
+        {
+          from: 'Patrik Vilja',
+          amount: '10e',
+          date: '14/12/2013',
+          invoiceId: '10031039'
+        },
+        {
+          from: 'Peter Vilja',
+          amount: '40e',
+          date: '02/12/2013',
+          invoiceId: '10031040'
+        },
+        {
+          from: 'Peter Vilja',
+          amount: '20e',
+          date: '25/11/2013',
+          invoiceId: '10031041'
+        },
+        {
+          from: 'Patrik Vilja',
+          amount: '15e',
+          date: '10/11/2013',
+          invoiceId: '10031042'
+        },
+        {
+          from: 'Patrik Vilja',
+          amount: '40e',
+          date: '16/10/2013',
+          invoiceId: '10031043'
+        },
+        {
+          from: 'Patrik Vilja',
+          amount: '20e',
+          date: '01/10/2013',
+          invoiceId: '10031044'
         }]
     }
 	}

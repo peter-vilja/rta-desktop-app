@@ -5,16 +5,46 @@
 	<span class="bold">E-bank</span><span class="email">{{ebank}}</span><br/>
 </div>
 <div class="invoices">
-	<div class="open">
+	<div class="invoiced">
 		<span class="title">Open invoices</span>
-		{{#each invoices.open}}
-			<div class="invoice" onclick="showInvoice({{this.invoiceId}}, '{{this.from}}', '{{this.amount}}', this.parentNode.parentNode.parentNode.parentNode);"><span class="date">{{this.date}}</span><span class="from">{{this.invoiceId}}</span><span class="amount">{{this.amount}}</span></div>
-		{{/each}}
+		<ul>
+			{{#each invoices.open}}
+				<li class="invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}')">
+					<div class="date">{{this.date}}</div>
+					<div>
+						<div class="name">{{this.from}}</div>
+						<div class="amount">{{this.amount}}</div>
+					</div>
+				</li>
+			{{/each}}
+		</ul>
 	</div>
-	<div class="paidInvoices">
+	<div class="sent">
+		<span class="title">Sent invoices</span>
+		<ul>
+			{{#each invoices.open}}
+				<li class="invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}')">
+					<div class="date">{{this.date}}</div>
+					<div>
+						<div class="name">{{this.from}}</div>
+						<div class="amount">{{this.amount}}</div>
+					</div>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+	<div class="paid">
 		<span class="title">Paid invoices</span>
-		{{#each invoices.paid}}
-			<div class="invoice" onclick="showInvoice({{this.invoiceId}}, '{{this.from}}', '{{this.amount}}', this.parentNode.parentNode.parentNode.parentNode);"><span class="date">{{this.date}}</span><span class="from">{{this.invoiceId}}</span><span class="amount">{{this.amount}}</span></div>
-		{{/each}}
+		<ul>
+			{{#each invoices.paid}}
+				<li class="invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}, this.parentNode.parentNode.parentNode.parentNode')">
+					<div class="date">{{this.date}}</div>
+					<div>
+						<div class="name">{{this.from}}</div>
+						<div class="amount colorgreen bold">{{this.amount}}</div>
+					</div>
+				</li>
+			{{/each}}
+			</ul>
 	</div>
 </div>
