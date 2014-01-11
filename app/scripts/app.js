@@ -5,9 +5,16 @@
   var content = document.getElementById('content-container');
   var tracker = document.getElementById('tracker-container');
   var trackerContent = document.getElementById('tracker-content');
+  var receipt = document.getElementById('receipt-container');
+  var customer = document.getElementById('customer-container');
   
   document.getElementById('time').addEventListener('click', function(element) {
     tracker.style.display = '';
+    customer.style.display = 'none';
+    var receiptDetails = document.getElementById('receipt-details');
+    if (receiptDetails && trackerContent.className.indexOf('hidden') != -1)
+      receipt.className = 'receipt-container';
+
     content.innerHTML = '';
     var time = document.getElementById('time-container');
     if (!time)
@@ -18,13 +25,22 @@
 
   document.getElementById('customers').addEventListener('click', function(element) {
     tracker.style.display = 'none';
-    content.innerHTML = JST['app/templates/customers.hbs']();
+    customer.style.display = '';
+    content.innerHTML = '';
+    var receiptDetails = document.getElementById('receipt-details');
+    if (receiptDetails)
+      receipt.className = receipt.className + ' hidden';
+    customer.innerHTML = JST['app/templates/customers.hbs']();
     resetNavigation();
     element.currentTarget.className = 'selected';
   });
 
   document.getElementById('invoices').addEventListener('click', function(element) {
     tracker.style.display = 'none';
+    customer.style.display = 'none';
+    var receiptDetails = document.getElementById('receipt-details');
+    if (receiptDetails)
+      receipt.className = receipt.className + ' hidden';
     content.innerHTML = JST['app/templates/invoices.hbs'](users);
     resetNavigation();
     element.currentTarget.className = 'selected';
@@ -150,7 +166,8 @@ function submitTimer () {
     var name = document.getElementById('name').innerHTML;
     var data = {
       'name': name,
-      'amount': amount
+      'amount': amount,
+      'invoiceId': 12334567
     };
     left.className = left.className + ' hidden';
     time.className = left.className + ' hidden';
@@ -224,7 +241,30 @@ function closeCustomer (element, customer, id) {
   }
 }
 
-function showWithId (name) {
+function showWithId (invoiceId, name, amount) {
+  var inv = document.getElementById('inv');
+  inv.className = inv.className + ' hidden';
+  var invReceipt = document.getElementById('inv-receipt');
+  var data = {
+    'name': name,
+    'amount': amount,
+    'invoiceId': invoiceId
+  }
+  invReceipt.innerHTML = JST['app/templates/inv-receipt.hbs'](data);
+  var back = document.getElementById('backtoinvoices');
+  back.className = 'back-button';
+}
+
+function toInvoices () {
+  var back = document.getElementById('backtoinvoices');
+  back.className = back.className + ' hidden';
+  var receipt = document.getElementById('invoices-receipt');
+  receipt.parentNode.removeChild(receipt);
+  var inv = document.getElementById('inv');
+  inv.className = 'inv';
+}
+
+function showUserWithId (name) {
   var names = [];
   names['Peter Vilja'] = 'peter';
   names['Patrik Vilja'] = 'patrik';
@@ -278,4 +318,29 @@ function toStart () {
   button.className = 'button start';
   button.innerHTML = 'START TIMER';
   button.onclick = startTimer;
+}
+
+function showInvoice (invoiceId, name, amount, parent) {
+  parent.click();
+  var customerList = document.getElementById('customer-list');
+  var invoiceReceipt = document.getElementById('invoice-receipt');
+  var back = document.getElementById('backtocustomers');
+
+  customerList.className = customerList.className + ' hidden';
+  var data = {
+    'name': name,
+    'amount': amount,
+    'invoiceId': invoiceId
+  }
+  invoiceReceipt.innerHTML = JST['app/templates/invoice-receipt.hbs'](data);
+  back.className = 'back-button';
+}
+
+function toCustomers () {
+  var back = document.getElementById('backtocustomers');
+  back.className = back.className + ' hidden';
+  var receipt = document.getElementById('customer-receipt');
+  receipt.parentNode.removeChild(receipt);
+  var customerList = document.getElementById('customer-list');
+  customerList.className = 'customer-list';
 }

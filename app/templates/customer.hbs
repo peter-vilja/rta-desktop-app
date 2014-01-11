@@ -5,8 +5,16 @@
 	<span class="bold">E-bank</span><span class="email">{{ebank}}</span><br/>
 </div>
 <div class="invoices">
-	<span class="title">Paid invoices</span>
-	{{#each invoices.paid}}
-		<div class="invoice"><span class="date">{{this.date}}</span><span class="from">{{this.from}}</span><span class="amount">{{this.amount}}</span></div>
-	{{/each}}
+	<div class="open">
+		<span class="title">Open invoices</span>
+		{{#each invoices.open}}
+			<div class="invoice" onclick="showInvoice({{this.invoiceId}}, '{{this.from}}', '{{this.amount}}', this.parentNode.parentNode.parentNode.parentNode);"><span class="date">{{this.date}}</span><span class="from">{{this.invoiceId}}</span><span class="amount">{{this.amount}}</span></div>
+		{{/each}}
+	</div>
+	<div class="paidInvoices">
+		<span class="title">Paid invoices</span>
+		{{#each invoices.paid}}
+			<div class="invoice" onclick="showInvoice({{this.invoiceId}}, '{{this.from}}', '{{this.amount}}', this.parentNode.parentNode.parentNode.parentNode);"><span class="date">{{this.date}}</span><span class="from">{{this.invoiceId}}</span><span class="amount">{{this.amount}}</span></div>
+		{{/each}}
+	</div>
 </div>

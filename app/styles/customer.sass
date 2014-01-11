@@ -76,21 +76,21 @@
     margin-top: 10px
 
   .visible
-    height: 155px
+    height: 350px
 
   .image
     width: 140px
-    height: 100%
+    height: 40%
     float: left
     background-image: url('images/low_contrast_linen.png')
     margin-left: 20px
     opacity: 0.82
+    overflow: hidden
 
   .information
     float: left
-    height: 100%
-    max-width: 300px
-    width: 30%
+    height: 40%
+    width: 70%
     margin-left: 20px
     overflow: hidden
 
@@ -104,15 +104,31 @@
         font-family: 'OpenSans'
 
   .invoices
-    float: left
-    width: 35%
-    height: 100%
+    display: inline-block
+    width: 100%
+    height: 50%
     overflow: hidden
-    border-left: 1px solid rgba(0,0,0,0.3)
+    margin-top: 20px
+
+    .open
+      width: 45%
+      float: left
+      overflow: hidden
+
+    .paidInvoices
+      width: 45%
+      float: left
+      overflow: hidden
+
+      .amount
+        color: $green
 
     .invoice
       line-height: 30px
       border-bottom: 1px solid rgba(0,0,0,0.2)
+
+      &:hover
+        color: rgba(0,0,0,1)
 
     .date
       width: 100px
@@ -120,6 +136,7 @@
 
     > *
       margin-left: 20px
+
     span
       padding: 0
       display: inline-block
@@ -131,5 +148,60 @@
         width: 170px
 
       &.amount
-        padding-left: 30px
+        margin-right: 15px
+        float: right
         font-family: 'OpenSans'
+
+.invoice-receipt
+  width: 450px
+  margin: 10px auto 0
+
+  > div
+    margin-bottom: 20px
+  
+  .button
+    margin-right: 10px
+    font-size: 15px
+
+  .skip
+    color: $blue
+    cursor: pointer
+
+  .title
+    color: rgba(0,0,0,0.5)
+    border-bottom: 1px solid rgba(0,0,0,0.4)
+    width: 100%
+    display: block
+    line-height: 40px
+
+  .detail
+    width: 98%
+    display: block
+    border-bottom: 1px solid rgba(0,0,0,0.2)
+    margin-left: 5px
+    line-height: 40px
+
+    span:first-child
+      font-family: 'OpenSans'
+
+    .right
+      float: right
+      margin-right: 10px
+      color: rgba(0,0,0,0.6)
+
+  .send
+    margin: 0 auto
+    width: 50px
+    color: $blue
+    cursor: pointer
+    display: block
+
+.back-button
+  padding: 10px 10px
+  width: 80px
+  margin-top: 10px
+  height: 48px
+  cursor: pointer
+  &:hover
+    border-top: 1px solid rgba(0,0,0,0.2)
+    border-bottom: 1px solid rgba(0,0,0,0.2)

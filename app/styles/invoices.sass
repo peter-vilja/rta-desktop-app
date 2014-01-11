@@ -2,10 +2,18 @@
   width: 100%
   margin-top: 20px
 
+.inv-invoice
+  line-height: 30px
+  border-bottom: 1px solid rgba(0,0,0,0.2)
+
+  &:hover
+    color: rgba(0,0,0,1)
+
 .invoiced, .paid
   float: left
   width: 50%
   margin: 0 auto
+  cursor: pointer
 
   > *
     margin: 0 auto
@@ -17,21 +25,68 @@
   .invoicedlist, .paidlist
     margin-top: 10px
 
-  .invoice
-    line-height: 30px
-    border-bottom: 1px solid rgba(0,0,0,0.2)
-
   .from
     width: 200px
     display: inline-block
     cursor: pointer
-
-    &:hover
-      color: rgba(0,0,0,1)
 
   .date
     width: 100px
     display: inline-block
 
   .colorgreen
-    color: green
+    color: $green
+
+.inv-receipt
+  width: 450px
+  margin: 10px auto 0
+
+  > div
+    margin-bottom: 20px
+  
+  .button
+    margin-right: 10px
+    font-size: 15px
+
+  .skip
+    color: $blue
+    cursor: pointer
+
+  .title
+    color: rgba(0,0,0,0.5)
+    border-bottom: 1px solid rgba(0,0,0,0.4)
+    width: 100%
+    display: block
+    line-height: 40px
+
+  .detail
+    width: 98%
+    display: block
+    border-bottom: 1px solid rgba(0,0,0,0.2)
+    margin-left: 5px
+    line-height: 40px
+
+    span:first-child
+      font-family: 'OpenSans'
+
+    .right
+      float: right
+      margin-right: 10px
+      color: rgba(0,0,0,0.6)
+
+  .send
+    margin: 20px auto 0px
+    width: 50px
+    color: $blue
+    cursor: pointer
+    display: block
+
+.back-button
+  padding: 10px 10px
+  width: 80px
+  margin-top: 10px
+  height: 48px
+  cursor: pointer
+  &:hover
+    border-top: 1px solid rgba(0,0,0,0.2)
+    border-bottom: 1px solid rgba(0,0,0,0.2)
