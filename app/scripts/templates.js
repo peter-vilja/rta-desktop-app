@@ -207,7 +207,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div id=\"continue\" class=\"continue hidden\" onclick=\"toStart();\"><span class=\"arrow\"><</span><span id=\"back\" class=\"back\">  BACK</span></div>\n<div id=\"new\" class=\"add button\" onclick=\"stopTimer();\"><span>ADD WORK HOURS</span></div>\n<div id=\"time-container\" class=\"time-container\">\n	<span id=\"elapsed\" class=\"time\">00:00:00</span>\n	<span id=\"timer-button\" class=\"button start\" onclick=\"startTimer()\">START TIMER</span>\n</div>";
+  return "<div id=\"continue\" class=\"continue hidden\" onclick=\"toStart();\"><span class=\"arrow\"><</span><span id=\"back\" class=\"back\">  BACK</span></div>\n<div id=\"records\" class=\"records icon-records button\"><span>RECORDS</span></div>\n<div id=\"new\" class=\"add button\" onclick=\"stopTimer();\"><span>ADD WORK HOURS</span></div>\n<div id=\"time-container\" class=\"time-container\">\n	<span id=\"elapsed\" class=\"time\">00:00:00</span>\n	<span id=\"timer-button\" class=\"button start\" onclick=\"startTimer()\">START TIMER</span>\n</div>";
   });
 
 this["JST"]["app/templates/users.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

@@ -1,0 +1,11 @@
+<div id="record-list" class="record-list">
+  {{#each record}}
+    <div class="record">
+      <div class="date-time">
+        <span class="date">{{this.date}}</span>
+        <span class="time">{{this.time}}</span>
+      </div>
+      <span class="comment">{{this.comment}}</span>
+    </div>
+  {{/each}}
+</div>
