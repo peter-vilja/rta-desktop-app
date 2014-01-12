@@ -1,19 +1,21 @@
 <div class="image"></div>
 <div class="information">
 	<span class="bold">Phone number</span><span class="phone">{{phone}}</span><br/>
-	<span class="bold">Billing address</span><span class="address">{{address}}</span><br/>
-	<span class="bold">E-bank</span><span class="email">{{ebank}}</span><br/>
+	<span class="bold">Email</span><span class="email">{{email}}</span><br/>
+	<span class="bold">Address</span><span class="address">{{address}}</span><br/>
+	<span class="bold">Billing address</span><span class="address">{{baddress}}</span><br/>
+	<span class="bold">Hourly rate</span><span class="email">{{hour}} &euro;</span><br/>
 </div>
 <div class="invoices">
 	<div class="invoiced">
 		<span class="title">Open invoices</span>
 		<ul>
 			{{#each invoices.open}}
-				<li class="invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}')">
+				<li class="invoice" onclick="showInvoice({{this.invoiceId}},'{{this.from}}', '{{this.amount}}', this.parentNode.parentNode.parentNode.parentNode)">
 					<div class="date">{{this.date}}</div>
 					<div>
 						<div class="name">{{this.from}}</div>
-						<div class="amount">{{this.amount}}</div>
+						<div class="amount">{{this.amount}} &euro;</div>
 					</div>
 				</li>
 			{{/each}}
@@ -23,11 +25,11 @@
 		<span class="title">Sent invoices</span>
 		<ul>
 			{{#each invoices.open}}
-				<li class="invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}')">
+				<li class="invoice" onclick="showInvoice({{this.invoiceId}},'{{this.from}}', '{{this.amount}}', this.parentNode.parentNode.parentNode.parentNode)">
 					<div class="date">{{this.date}}</div>
 					<div>
 						<div class="name">{{this.from}}</div>
-						<div class="amount">{{this.amount}}</div>
+						<div class="amount">{{this.amount}} &euro;</div>
 					</div>
 				</li>
 			{{/each}}
@@ -37,11 +39,11 @@
 		<span class="title">Paid invoices</span>
 		<ul>
 			{{#each invoices.paid}}
-				<li class="invoice" onclick="showWithId({{this.invoiceId}},'{{this.from}}', '{{this.amount}}, this.parentNode.parentNode.parentNode.parentNode')">
+				<li class="invoice" onclick="showInvoice({{this.invoiceId}},'{{this.from}}', '{{this.amount}}', this.parentNode.parentNode.parentNode.parentNode)">
 					<div class="date">{{this.date}}</div>
 					<div>
 						<div class="name">{{this.from}}</div>
-						<div class="amount colorgreen bold">{{this.amount}}</div>
+						<div class="amount colorgreen bold">{{this.amount}} &euro;</div>
 					</div>
 				</li>
 			{{/each}}

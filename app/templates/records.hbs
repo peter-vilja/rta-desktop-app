@@ -1,11 +1,16 @@
+<div id="backtotime" class="back-button" onclick="toTime();"><span class="arrow"><</span><span class="back">  BACK</span></div>
+<div class="search-container">
+    <input class="search" type="text" placeholder="Search"/><span class="icon-search button search-button"></span>
+</div>
 <div id="record-list" class="record-list">
-  {{#each record}}
-    <div class="record">
+  {{#each this}}
+    <div class="record" onclick="showRecord('{{this.date}}', '{{this.time}}', '{{this.comment}}');">
       <div class="date-time">
         <span class="date">{{this.date}}</span>
-        <span class="time">{{this.time}}</span>
+        <span class="time bold">{{this.time}}</span>
       </div>
       <span class="comment">{{this.comment}}</span>
+      <span class="with">With: {{this.with}}</span>
     </div>
   {{/each}}
 </div>

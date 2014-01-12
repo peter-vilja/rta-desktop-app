@@ -4,7 +4,7 @@
   "description": "Real Time Accounting",
   "window": {
     "title": "Real Time Accounting",
-    "toolbar": true,
+    "toolbar": false,
     "min_width": 700,
     "min_height": 500,
     "width": 800,

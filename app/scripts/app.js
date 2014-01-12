@@ -1,5 +1,9 @@
 'use strict';
 
+var gui = require('nw.gui');
+var win = gui.Window.get();
+win.title = 'Time Tracker';
+
 (function() {
 
   var content = document.getElementById('content-container');
@@ -9,6 +13,7 @@
   var customer = document.getElementById('customer-container');
   
   document.getElementById('time').addEventListener('click', function(element) {
+    win.title = 'Time Tracker';
     tracker.style.display = '';
     customer.style.display = 'none';
     var receiptDetails = document.getElementById('receipt-details');
@@ -24,6 +29,7 @@
   });
 
   document.getElementById('customers').addEventListener('click', function(element) {
+    win.title = 'Customers';
     tracker.style.display = 'none';
     customer.style.display = '';
     content.innerHTML = '';
@@ -36,6 +42,7 @@
   });
 
   document.getElementById('invoices').addEventListener('click', function(element) {
+    win.title = 'Invoices';
     tracker.style.display = 'none';
     customer.style.display = 'none';
     var receiptDetails = document.getElementById('receipt-details');
@@ -112,6 +119,7 @@ function resetTimer (reset) {
 }
 
 function stopTimer() {
+  win.title = 'Book work hours';
   clearInterval(timer);
   var button = document.getElementById('timer-button');
   var reset = document.getElementById('reset-button');
@@ -119,11 +127,13 @@ function stopTimer() {
   var con = document.getElementById('continue');
   var elapsed = document.getElementById('elapsed');
   var add = document.getElementById('new');
+  var recordsButton = document.getElementById('records');
   var timewrapper = document.getElementById('time-wrapper');
   var left = document.getElementById('left-content');
   var tracker = document.getElementById('tracker-content');
 
   add.className = add.className + ' hidden';
+  recordsButton.className = recordsButton.className + ' hidden';
   con.className = 'continue';
   parent.className = parent.className + ' hidden';
 
@@ -172,6 +182,7 @@ function submitTimer () {
     left.className = left.className + ' hidden';
     time.className = left.className + ' hidden';
     receipt.innerHTML = JST['app/templates/receipt.hbs'](data);
+    win.title = 'Verify invoice';
   }
 }
 
@@ -253,6 +264,7 @@ function showWithId (invoiceId, name, amount) {
   invReceipt.innerHTML = JST['app/templates/inv-receipt.hbs'](data);
   var back = document.getElementById('backtoinvoices');
   back.className = 'back-button';
+  win.title = 'Invoice details';
 }
 
 function toInvoices () {
@@ -304,6 +316,11 @@ function toStart () {
   var tracker = document.getElementById('tracker-content');
   var con = document.getElementById('continue');
   var button = document.getElementById('timer-button');
+  var add = document.getElementById('new');
+  var recordsButton = document.getElementById('records');
+
+  add.className = 'add button';
+  recordsButton.className = 'records icon-records button';
 
   if (receipt)
     receipt.className = receipt.className + ' hidden';
@@ -315,8 +332,8 @@ function toStart () {
   }
   con.className = 'continue hidden';
   time.className = 'time-container';
-  button.className = 'button start';
-  button.innerHTML = 'START TIMER';
+  button.className = 'button start cont';
+  button.innerHTML = 'CONTINUE TIMER';
   button.onclick = startTimer;
 }
 
@@ -325,6 +342,8 @@ function showInvoice (invoiceId, name, amount, parent) {
   var customerList = document.getElementById('customer-list');
   var invoiceReceipt = document.getElementById('invoice-receipt');
   var back = document.getElementById('backtocustomers');
+  console.log(customerList);
+  console.log(back)
 
   customerList.className = customerList.className + ' hidden';
   var data = {
@@ -348,6 +367,14 @@ function toCustomers () {
 function showRecords () {
   var trackerContent = document.getElementById('tracker-content');
   trackerContent.className = trackerContent.className + ' hidden';
-  var records = document.getElementById('record-content');
-  records.innerHTML = JST['app/templates/records.hbs']();
+  var recordsContent = document.getElementById('records-content');
+  recordsContent.innerHTML = JST['app/templates/records.hbs'](records);
+  win.title = 'Records';
+}
+
+function toTime () {
+  var recordsContent = document.getElementById('records-content');
+  recordsContent.innerHTML = '';
+  var trackerContent = document.getElementById('tracker-content');
+  trackerContent.className = 'content';
 }

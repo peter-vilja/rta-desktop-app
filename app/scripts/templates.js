@@ -26,38 +26,38 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n				<li class=\"invoice\" onclick=\"showWithId("
+  buffer += "\n				<li class=\"invoice\" onclick=\"showInvoice("
     + escapeExpression(((stack1 = (depth0 && depth0.invoiceId)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + ",'"
     + escapeExpression(((stack1 = (depth0 && depth0.from)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "', '"
     + escapeExpression(((stack1 = (depth0 && depth0.amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "')\">\n					<div class=\"date\">"
+    + "', this.parentNode.parentNode.parentNode.parentNode)\">\n					<div class=\"date\">"
     + escapeExpression(((stack1 = (depth0 && depth0.date)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</div>\n					<div>\n						<div class=\"name\">"
     + escapeExpression(((stack1 = (depth0 && depth0.from)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</div>\n						<div class=\"amount\">"
     + escapeExpression(((stack1 = (depth0 && depth0.amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</div>\n					</div>\n				</li>\n			";
+    + " &euro;</div>\n					</div>\n				</li>\n			";
   return buffer;
   }
 
 function program3(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n				<li class=\"invoice\" onclick=\"showWithId("
+  buffer += "\n				<li class=\"invoice\" onclick=\"showInvoice("
     + escapeExpression(((stack1 = (depth0 && depth0.invoiceId)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + ",'"
     + escapeExpression(((stack1 = (depth0 && depth0.from)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "', '"
     + escapeExpression(((stack1 = (depth0 && depth0.amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + ", this.parentNode.parentNode.parentNode.parentNode')\">\n					<div class=\"date\">"
+    + "', this.parentNode.parentNode.parentNode.parentNode)\">\n					<div class=\"date\">"
     + escapeExpression(((stack1 = (depth0 && depth0.date)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</div>\n					<div>\n						<div class=\"name\">"
     + escapeExpression(((stack1 = (depth0 && depth0.from)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</div>\n						<div class=\"amount colorgreen bold\">"
     + escapeExpression(((stack1 = (depth0 && depth0.amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</div>\n					</div>\n				</li>\n			";
+    + " &euro;</div>\n					</div>\n				</li>\n			";
   return buffer;
   }
 
@@ -65,15 +65,23 @@ function program3(depth0,data) {
   if (stack1 = helpers.phone) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.phone); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span><br/>\n	<span class=\"bold\">Billing address</span><span class=\"address\">";
+    + "</span><br/>\n	<span class=\"bold\">Email</span><span class=\"email\">";
+  if (stack1 = helpers.email) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.email); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</span><br/>\n	<span class=\"bold\">Address</span><span class=\"address\">";
   if (stack1 = helpers.address) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.address); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span><br/>\n	<span class=\"bold\">E-bank</span><span class=\"email\">";
-  if (stack1 = helpers.ebank) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = (depth0 && depth0.ebank); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+    + "</span><br/>\n	<span class=\"bold\">Billing address</span><span class=\"address\">";
+  if (stack1 = helpers.baddress) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.baddress); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span><br/>\n</div>\n<div class=\"invoices\">\n	<div class=\"invoiced\">\n		<span class=\"title\">Open invoices</span>\n		<ul>\n			";
+    + "</span><br/>\n	<span class=\"bold\">Hourly rate</span><span class=\"email\">";
+  if (stack1 = helpers.hour) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.hour); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + " &euro;</span><br/>\n</div>\n<div class=\"invoices\">\n	<div class=\"invoiced\">\n		<span class=\"title\">Open invoices</span>\n		<ul>\n			";
   stack2 = helpers.each.call(depth0, ((stack1 = (depth0 && depth0.invoices)),stack1 == null || stack1 === false ? stack1 : stack1.open), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\n		</ul>\n	</div>\n	<div class=\"sent\">\n		<span class=\"title\">Sent invoices</span>\n		<ul>\n			";
@@ -159,7 +167,7 @@ function program1(depth0,data) {
     + escapeExpression(((stack1 = (depth0 && depth0.from)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</div>\n						<div class=\"amount\">"
     + escapeExpression(((stack1 = (depth0 && depth0.amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</div>\n					</div>\n				</li>\n			";
+    + " &euro;</div>\n					</div>\n				</li>\n			";
   return buffer;
   }
 
@@ -178,7 +186,7 @@ function program3(depth0,data) {
     + escapeExpression(((stack1 = (depth0 && depth0.from)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</div>\n						<div class=\"amount colorgreen bold\">"
     + escapeExpression(((stack1 = (depth0 && depth0.amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</div>\n					</div>\n				</li>\n			";
+    + " &euro;</div>\n					</div>\n				</li>\n			";
   return buffer;
   }
 
@@ -225,18 +233,26 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n    <div class=\"record\">\n      <div class=\"date-time\">\n        <span class=\"date\">"
+  buffer += "\n    <div class=\"record\" onclick=\"showRecord('"
     + escapeExpression(((stack1 = (depth0 && depth0.date)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</span>\n        <span class=\"time\">"
+    + "', '"
+    + escapeExpression(((stack1 = (depth0 && depth0.time)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "', '"
+    + escapeExpression(((stack1 = (depth0 && depth0.comment)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "');\">\n      <div class=\"date-time\">\n        <span class=\"date\">"
+    + escapeExpression(((stack1 = (depth0 && depth0.date)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</span>\n        <span class=\"time bold\">"
     + escapeExpression(((stack1 = (depth0 && depth0.time)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</span>\n      </div>\n      <span class=\"comment\">"
     + escapeExpression(((stack1 = (depth0 && depth0.comment)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</span>\n      <span class=\"with\">With: "
+    + escapeExpression(((stack1 = (depth0 && depth0['with'])),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</span>\n    </div>\n  ";
   return buffer;
   }
 
-  buffer += "<div id=\"record-list\" class=\"record-list\">\n  ";
-  stack1 = helpers.each.call(depth0, (depth0 && depth0.record), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  buffer += "<div id=\"backtotime\" class=\"back-button\" onclick=\"toTime();\"><span class=\"arrow\"><</span><span class=\"back\">  BACK</span></div>\n<div class=\"search-container\">\n    <input class=\"search\" type=\"text\" placeholder=\"Search\"/><span class=\"icon-search button search-button\"></span>\n</div>\n<div id=\"record-list\" class=\"record-list\">\n  ";
+  stack1 = helpers.each.call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n</div>";
   return buffer;
